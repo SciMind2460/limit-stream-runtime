@@ -23,7 +23,7 @@ pub struct Send<T: Ser, N: FromAdapter>(pub Box<dyn Adapter>, [T; 0], [N; 0]);
 
 impl<T: Ser, N: FromAdapter> FromAdapter for Send<T, N> {
     fn from_adapter(adapt: Box<dyn Adapter>) -> Self {
-        Send(adapt, Default::default(), Default::default())
+        Send(adapt, [], [])
     }
 }
 
@@ -43,7 +43,7 @@ pub struct Recv<T: Deser, N: FromAdapter>(pub Box<dyn Adapter>, [T; 0], [N; 0]);
 
 impl<T: Deser, N: FromAdapter> FromAdapter for Recv<T, N> {
     fn from_adapter(adapt: Box<dyn Adapter>) -> Self {
-        Recv(adapt, Default::default(), Default::default())
+        Recv(adapt, [], [])
     }
 }
 
